@@ -1,0 +1,34 @@
+the meaning of inheritance is try to not repeat code because the extructure exist and could be re used and help to keep order and create the necesary things whitout need to create another code that make the same thing or have the same properties or extructure.
+
+a benefit is you can create classes with base info and that allow me to keep in mind what are i am creating and how i am extructuring my code, that force me to follow the correct order to instance a class and find the way to create a flow that help to resolve issues in the better way.
+
+
+example
+public class Activity
+{
+    private string _name;
+    private string _description;
+    protected int _duration;
+}
+
+public class Breathing : Activity
+{
+    public Breathing(string name, string description): base (name, description){}
+    public void Run()
+    {
+        DisplayStartingMessage();
+        DateTime startTime = DateTime.Now;
+        DateTime futureTime = startTime.AddSeconds(_duration);
+        while (DateTime.Now < futureTime)
+        {
+            Console.Write("Breathe in...");
+            ShowCountDown(4);
+            Console.Write("Now breathe out...");
+            ShowCountDown(6);
+            Console.WriteLine("");
+        }
+        DisplayEndingMessage();
+    }
+}
+
+here we can see that the variable _duration that was created in Activity with the keyword protected could be used in a child class where it need to calculate the time in seconds the the while block should be executed and the help to keep a order because that variable could be used in all classes that inherited it.
